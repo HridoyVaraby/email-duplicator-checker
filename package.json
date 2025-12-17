@@ -1,8 +1,28 @@
 {
   "name": "email-duplicator-checker",
-  "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "description": "A modern web application for detecting and removing duplicate entries from email/contact lists",
   "type": "module",
+  "license": "MIT",
+  "author": "Email Duplicator Checker",
+  "homepage": "https://github.com/HridoyVaraby/email-duplicator-checker#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HridoyVaraby/email-duplicator-checker.git"
+  },
+  "bugs": {
+    "url": "https://github.com/HridoyVaraby/email-duplicator-checker/issues"
+  },
+  "keywords": [
+    "email",
+    "duplicate",
+    "cleaner",
+    "csv",
+    "excel",
+    "react",
+    "vite",
+    "data-cleaning"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "vite build",
