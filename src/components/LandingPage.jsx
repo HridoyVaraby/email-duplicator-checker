@@ -56,40 +56,156 @@ const LandingPage = () => {
         </div>
       </section>
 
-      {/* Features Section */}
+      {/* Features Section - Modern Design */}
       <section id="features-section" className="features-section">
         <div className="features-container">
-          <div className="features-grid">
-            <div className="feature-card">
-              <div className="feature-icon">
-                <Icon name="FolderOpen" size={32} />
+          <div className="features-header">
+            <div className="features-badge">
+              <span>FEATURES</span>
+            </div>
+            <h2 className="features-title">
+              Powerful Tools for Data Excellence
+            </h2>
+            <p className="features-subtitle">
+              Everything you need to clean, analyze, and optimize your email
+              lists with precision and speed
+            </p>
+          </div>
+
+          <div className="features-illustration">
+            <div className="floating-elements">
+              <div className="element element-1">
+                <Icon name="FileSpreadsheet" size={20} />
               </div>
-              <h3 className="feature-title">Multiple Formats</h3>
-              <p className="feature-description">
-                Support for CSV and Excel files with drag-and-drop upload
-              </p>
+              <div className="element element-2">
+                <Icon name="Database" size={24} />
+              </div>
+              <div className="element element-3">
+                <Icon name="ShieldCheck" size={18} />
+              </div>
+              <div className="element element-4">
+                <Icon name="Globe" size={22} />
+              </div>
+            </div>
+          </div>
+
+          <div className="features-showcase">
+            {/* Feature 1 - Multiple Formats */}
+            <div className="feature-modern">
+              <div className="feature-visual">
+                <div className="icon-hexagon">
+                  <Icon name="FolderOpen" size={40} />
+                </div>
+                <div className="format-badges">
+                  <span className="format-badge csv">CSV</span>
+                  <span className="format-badge xlsx">XLSX</span>
+                  <span className="format-badge txt">TXT</span>
+                </div>
+              </div>
+              <div className="feature-content">
+                <h3 className="feature-name">Universal Format Support</h3>
+                <p className="feature-detail">
+                  Seamlessly process files from any source. Our intelligent
+                  parser handles CSV, Excel, and text files with automatic
+                  format detection and encoding support.
+                </p>
+                <div class="feature-metrics">
+                  <span class="metric">
+                    <span class="metric-value">3+</span>
+                    <span class="metric-label">Formats</span>
+                  </span>
+                  <span class="metric">
+                    <span class="metric-value">100%</span>
+                    <span class="metric-label">Accuracy</span>
+                  </span>
+                </div>
+              </div>
             </div>
 
-            <div className="feature-card">
-              <div className="feature-icon">
-                <Icon name="Zap" size={32} />
+            {/* Feature 2 - Lightning Fast */}
+            <div className="feature-modern reverse">
+              <div className="feature-visual">
+                <div className="icon-hexagon pulse">
+                  <Icon name="Zap" size={40} />
+                </div>
+                <div className="speed-indicator">
+                  <div className="speed-bar">
+                    <div className="speed-fill"></div>
+                  </div>
+                  <span className="speed-text">0.01s/1000 rows</span>
+                </div>
               </div>
-              <h3 className="feature-title">Lightning Fast</h3>
-              <p className="feature-description">
-                Process thousands of rows in seconds with efficient duplicate
-                detection
-              </p>
+              <div className="feature-content">
+                <h3 className="feature-name">Blazing Performance</h3>
+                <p className="feature-detail">
+                  Process millions of records in seconds. Our optimized
+                  algorithm uses advanced indexing techniques to identify
+                  duplicates with unmatched speed and efficiency.
+                </p>
+                <div class="feature-metrics">
+                  <span class="metric">
+                    <span class="metric-value">10M+</span>
+                    <span class="metric-label">Rows/min</span>
+                  </span>
+                  <span class="metric">
+                    <span class="metric-value">0.1ms</span>
+                    <span class="metric-label">Latency</span>
+                  </span>
+                </div>
+              </div>
             </div>
 
-            <div className="feature-card">
-              <div className="feature-icon">
-                <Icon name="BarChart3" size={32} />
+            {/* Feature 3 - Detailed Reports */}
+            <div className="feature-modern">
+              <div className="feature-visual">
+                <div className="icon-hexagon">
+                  <Icon name="BarChart3" size={40} />
+                </div>
+                <div className="chart-preview">
+                  <div className="chart-bar bar-1"></div>
+                  <div className="chart-bar bar-2"></div>
+                  <div className="chart-bar bar-3"></div>
+                  <div className="chart-bar bar-4"></div>
+                </div>
               </div>
-              <h3 className="feature-title">Detailed Reports</h3>
-              <p className="feature-description">
-                Get comprehensive analytics on duplicates, unique entries, and
-                data quality
-              </p>
+              <div className="feature-content">
+                <h3 className="feature-name">Intelligent Analytics</h3>
+                <p className="feature-detail">
+                  Gain deep insights into your data quality. Our reports provide
+                  comprehensive metrics, visualizations, and actionable
+                  recommendations to optimize your lists.
+                </p>
+                <div class="feature-metrics">
+                  <span class="metric">
+                    <span class="metric-value">20+</span>
+                    <span class="metric-label">Metrics</span>
+                  </span>
+                  <span class="metric">
+                    <span class="metric-value">100%</span>
+                    <span class="metric-label">Coverage</span>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Feature Stats */}
+          <div className="features-stats">
+            <div className="stat-item">
+              <div className="stat-number">99.9%</div>
+              <div className="stat-label">Accuracy Rate</div>
+            </div>
+            <div className="stat-item">
+              <div className="stat-number">1M+</div>
+              <div class="stat-label">Emails Processed</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">500K+</div>
+              <div class="stat-label">Duplicates Removed</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">24/7</div>
+              <div class="stat-label">Available</div>
             </div>
           </div>
         </div>
