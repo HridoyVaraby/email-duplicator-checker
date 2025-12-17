@@ -36,8 +36,8 @@ const LandingPage = () => {
           <div className="hero-text">
             <div className="hero-badge-wrapper">
               <div className="hero-badge">
-                <span className="badge-icon">⚡</span>
-                <span className="badge-text">New Background</span>
+                <Icon name="Github" size={16} className="badge-icon" />
+                <span className="badge-text">100% Free & Open Source</span>
               </div>
             </div>
             <h1 className="hero-title">
@@ -45,16 +45,21 @@ const LandingPage = () => {
               <span className="title-accent">Effortlessly</span>
             </h1>
             <p className="hero-subtitle">
-              Remove duplicate entries from your email lists with professional
-              precision. Upload, analyze, and download cleaned data in seconds.
+              Professional email list deduplication tool that works entirely in your browser.
+              Process CSV/XLSX files securely with enterprise-grade accuracy and lightning-fast performance.
             </p>
             <div className="hero-actions">
               <button onClick={handleGetStarted} className="cta-button primary">
                 <span className="cta-text">Get Started</span>
               </button>
-              <button onClick={() => navigate('/docs')} className="cta-button secondary">
+              <a
+                href="https://github.com/HridoyVaraby/email-duplicator-checker"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="cta-button secondary"
+              >
                 <span className="cta-text">Learn More</span>
-              </button>
+              </a>
             </div>
           </div>
         </div>

@@ -26,7 +26,8 @@
 }
 
 .badge-icon {
-    font-size: 1rem;
+    color: var(--primary-white);
+    stroke: var(--primary-white);
 }
 
 /* Updated Hero Actions */

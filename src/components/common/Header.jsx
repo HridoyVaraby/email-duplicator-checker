@@ -202,7 +202,7 @@ const Header = () => {
 
         .nav-link {
           font-size: 1rem;
-          font-weight: var(--font-weight-medium);
+          font-weight: var(--font-weight-bold);
           color: var(--gray-700);
           padding: var(--spacing-sm) var(--spacing-md);
           border-radius: var(--radius-md);
@@ -315,7 +315,7 @@ const Header = () => {
           width: 100%;
           text-align: left;
           font-size: 1.125rem;
-          font-weight: var(--font-weight-medium);
+          font-weight: var(--font-weight-bold);
           color: var(--gray-700);
           padding: var(--spacing-md) var(--spacing-lg);
           border-radius: var(--radius-md);
