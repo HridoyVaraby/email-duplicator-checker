@@ -5,6 +5,7 @@ import Icon from './Icon';
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [githubStars, setGithubStars] = useState(null);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -29,6 +30,23 @@ const Header = () => {
     document.addEventListener('click', handleClickOutside);
     return () => document.removeEventListener('click', handleClickOutside);
   }, [isMobileMenuOpen]);
+
+  // Fetch GitHub stars
+  useEffect(() => {
+    const fetchGitHubStars = async () => {
+      try {
+        const response = await fetch('https://api.github.com/repos/HridoyVaraby/email-duplicator-checker');
+        if (response.ok) {
+          const data = await response.json();
+          setGithubStars(data.stargazers_count);
+        }
+      } catch (error) {
+        console.error('Failed to fetch GitHub stars:', error);
+      }
+    };
+
+    fetchGitHubStars();
+  }, []);
 
   // Smooth scroll to section
   const scrollToSection = (sectionId) => {
@@ -91,6 +109,22 @@ const Header = () => {
           <button className="cta-button-header" onClick={handleGetStarted}>
             Get Started
           </button>
+
+          {/* GitHub Badge */}
+          <a
+            href="https://github.com/HridoyVaraby/email-duplicator-checker"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="github-badge-header"
+            aria-label="View on GitHub"
+          >
+            <Icon name="Github" size={16} />
+            {githubStars !== null && (
+              <span className="github-stars-count">
+                {githubStars >= 1000 ? `${(githubStars / 1000).toFixed(1)}k` : githubStars}
+              </span>
+            )}
+          </a>
 
           {/* Mobile Menu Toggle */}
           <button
@@ -237,6 +271,36 @@ const Header = () => {
           box-shadow: var(--shadow-lg);
         }
 
+        /* GitHub Badge */
+        .github-badge-header {
+          display: none;
+          align-items: center;
+          justify-content: center;
+          min-width: 40px;
+          height: 40px;
+          background-color: var(--gray-100);
+          color: var(--gray-700);
+          border-radius: var(--radius-md);
+          transition: all var(--transition-normal);
+          text-decoration: none;
+          margin-left: var(--spacing-sm);
+          padding: 0 var(--spacing-sm);
+          gap: var(--spacing-xs);
+        }
+
+        .github-badge-header:hover {
+          background-color: var(--primary-black);
+          color: var(--primary-white);
+          transform: translateY(-1px);
+          box-shadow: var(--shadow-md);
+        }
+
+        .github-stars-count {
+          font-size: 0.75rem;
+          font-weight: var(--font-weight-semibold);
+          white-space: nowrap;
+        }
+
         /* Mobile Menu Toggle */
         .mobile-menu-toggle {
           display: flex;
@@ -361,6 +425,10 @@ const Header = () => {
           }
 
           .cta-button-header {
+            display: flex;
+          }
+
+          .github-badge-header {
             display: flex;
           }
 
