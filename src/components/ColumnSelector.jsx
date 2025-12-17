@@ -1,9 +1,16 @@
-import React, { useMemo } from 'react';
-import { useAppContext } from '../context/AppContext';
-import { getColumnStats } from '../utils/duplicateChecker';
+import React, { useMemo } from "react";
+import { useAppContext } from "../context/AppContext";
+import { getColumnStats } from "../utils/duplicateChecker";
+import Icon from "./common/Icon";
 
 const ColumnSelector = () => {
-  const { fileData, selectedColumn, handleColumnSelection, handleDuplicateCheck, isProcessing } = useAppContext();
+  const {
+    fileData,
+    selectedColumn,
+    handleColumnSelection,
+    handleDuplicateCheck,
+    isProcessing,
+  } = useAppContext();
 
   const columnStats = useMemo(() => {
     if (!fileData || !selectedColumn) return null;
@@ -12,8 +19,8 @@ const ColumnSelector = () => {
 
   if (!fileData) return null;
 
-  const hasEmailColumn = fileData.columns.some(col =>
-    col.toLowerCase().includes('email')
+  const hasEmailColumn = fileData.columns.some((col) =>
+    col.toLowerCase().includes("email"),
   );
 
   return (
@@ -21,11 +28,12 @@ const ColumnSelector = () => {
       <div className="column-selector-card">
         <div className="selector-header">
           <h2 className="selector-title">
-            <span className="selector-icon">🎯</span>
+            <Icon name="Target" size={24} className="selector-icon" />
             Select Column to Analyze
           </h2>
           <p className="selector-subtitle">
-            Choose the column that contains the data you want to check for duplicates
+            Choose the column that contains the data you want to check for
+            duplicates
           </p>
         </div>
 
@@ -44,7 +52,10 @@ const ColumnSelector = () => {
               >
                 {fileData.columns.map((column) => (
                   <option key={column} value={column}>
-                    {column} {hasEmailColumn && column.toLowerCase().includes('email') ? '📧' : ''}
+                    {column}{" "}
+                    {hasEmailColumn && column.toLowerCase().includes("email")
+                      ? "📧"
+                      : ""}
                   </option>
                 ))}
               </select>
@@ -56,15 +67,21 @@ const ColumnSelector = () => {
               <h3 className="stats-title">Column Statistics</h3>
               <div className="stats-grid">
                 <div className="stat-item">
-                  <div className="stat-value">{columnStats.total.toLocaleString()}</div>
+                  <div className="stat-value">
+                    {columnStats.total.toLocaleString()}
+                  </div>
                   <div className="stat-label">Total Rows</div>
                 </div>
                 <div className="stat-item">
-                  <div className="stat-value">{columnStats.uniqueCount.toLocaleString()}</div>
+                  <div className="stat-value">
+                    {columnStats.uniqueCount.toLocaleString()}
+                  </div>
                   <div className="stat-label">Unique Values</div>
                 </div>
                 <div className="stat-item">
-                  <div className="stat-value">{columnStats.emptyCount.toLocaleString()}</div>
+                  <div className="stat-value">
+                    {columnStats.emptyCount.toLocaleString()}
+                  </div>
                   <div className="stat-label">Empty Cells</div>
                 </div>
               </div>
@@ -84,7 +101,7 @@ const ColumnSelector = () => {
                 </>
               ) : (
                 <>
-                  <span className="button-icon">🔍</span>
+                  <Icon name="Search" size={20} className="button-icon" />
                   Analyze for Duplicates
                 </>
               )}
@@ -96,7 +113,8 @@ const ColumnSelector = () => {
           <div className="file-info">
             <span className="info-label">File contains:</span>
             <span className="info-value">
-              {fileData.data.length.toLocaleString()} rows, {fileData.columns.length} columns
+              {fileData.data.length.toLocaleString()} rows,{" "}
+              {fileData.columns.length} columns
             </span>
           </div>
         </div>

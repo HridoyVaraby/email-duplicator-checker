@@ -292,3 +292,20 @@ textarea:focus {
         font-size: 1.25rem;
     }
 }
+
+/* Icon Component Styles */
+.icon-component {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+    flex-shrink: 0;
+}
+
+.icon-loading {
+    opacity: 0.7;
+}
+
+.icon-error {
+    opacity: 0.5;
+}
