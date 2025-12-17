@@ -95,40 +95,149 @@ const LandingPage = () => {
         </div>
       </section>
 
-      {/* Process Section */}
+      {/* Process Section - Modern Design */}
       <section id="process-section" className="process-section">
         <div className="process-container">
-          <h2 className="process-title">How It Works</h2>
-          <div className="process-steps">
-            <div className="step">
-              <div className="step-number">1</div>
-              <div className="step-content">
-                <h3 className="step-title">Upload Your File</h3>
-                <p className="step-description">
-                  Drag and drop your CSV or Excel file containing email data
+          <div className="process-header">
+            <h2 className="process-title">How It Works</h2>
+            <div className="process-subtitle">
+              <span>Transform your data in three powerful steps</span>
+              <div className="title-line"></div>
+            </div>
+          </div>
+
+          <div className="process-flow">
+            {/* Step 1 - Upload */}
+            <div className="process-step upload-step">
+              <div className="step-visual">
+                <div className="visual-container">
+                  <Icon name="FileUp" size={48} className="step-icon" />
+                  <div className="upload-animation">
+                    <div className="file-pulse"></div>
+                    <div className="file-pulse delay-1"></div>
+                    <div className="file-pulse delay-2"></div>
+                  </div>
+                </div>
+                <div className="connection-line">
+                  <svg className="line-svg" viewBox="0 0 200 100">
+                    <path
+                      d="M 0 50 Q 50 50, 100 0 T 200 50"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      fill="none"
+                      strokeDasharray="5,5"
+                    >
+                      <animate
+                        attributeName="stroke-dashoffset"
+                        values="0;10"
+                        dur="1s"
+                        repeatCount="indefinite"
+                      />
+                    </path>
+                  </svg>
+                </div>
+              </div>
+              <div className="step-content-modern">
+                <span className="step-label">STEP 01</span>
+                <h3 className="step-title-modern">Upload Your File</h3>
+                <p className="step-desc">
+                  Simply drag and drop your CSV or Excel file. Our system
+                  instantly recognizes your data structure and prepares it for
+                  analysis.
                 </p>
+                <div className="tech-tags">
+                  <span className="tag">CSV</span>
+                  <span className="tag">XLSX</span>
+                  <span className="tag">Secure</span>
+                </div>
               </div>
             </div>
 
-            <div className="step">
-              <div className="step-number">2</div>
-              <div className="step-content">
-                <h3 className="step-title">Select Column</h3>
-                <p className="step-description">
-                  Choose the column containing email addresses or data to
-                  analyze
+            {/* Step 2 - Analyze */}
+            <div className="process-step analyze-step">
+              <div className="step-visual">
+                <div className="visual-container">
+                  <div className="analyzing-animation">
+                    <div className="data-circle">
+                      <Icon name="Target" size={32} />
+                      <div className="scan-ring"></div>
+                      <div className="scan-ring delay-1"></div>
+                    </div>
+                  </div>
+                </div>
+                <div className="connection-line">
+                  <svg className="line-svg" viewBox="0 0 200 100">
+                    <path
+                      d="M 0 50 Q 50 50, 100 100 T 200 50"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      fill="none"
+                      strokeDasharray="5,5"
+                    >
+                      <animate
+                        attributeName="stroke-dashoffset"
+                        values="0;10"
+                        dur="1s"
+                        repeatCount="indefinite"
+                      />
+                    </path>
+                  </svg>
+                </div>
+              </div>
+              <div className="step-content-modern">
+                <span className="step-label">STEP 02</span>
+                <h3 className="step-title-modern">Select & Analyze</h3>
+                <p className="step-desc">
+                  Our intelligent algorithm automatically detects email columns.
+                  Simply confirm your selection and watch as we scan thousands
+                  of entries in seconds.
                 </p>
+                <div className="tech-tags">
+                  <span className="tag">AI-Powered</span>
+                  <span className="tag">Lightning Fast</span>
+                </div>
               </div>
             </div>
 
-            <div className="step">
-              <div className="step-number">3</div>
-              <div className="step-content">
-                <h3 className="step-title">Get Results</h3>
-                <p className="step-description">
-                  View detailed reports and download your cleaned list
-                </p>
+            {/* Step 3 - Results */}
+            <div className="process-step results-step">
+              <div className="step-visual">
+                <div className="visual-container">
+                  <div className="results-animation">
+                    <Icon name="BarChart3" size={48} className="step-icon" />
+                    <div className="success-pulse"></div>
+                    <div className="success-pulse delay-1"></div>
+                    <div className="success-pulse delay-2"></div>
+                  </div>
+                </div>
               </div>
+              <div className="step-content-modern">
+                <span className="step-label">STEP 03</span>
+                <h3 className="step-title-modern">Download Clean Data</h3>
+                <p className="step-desc">
+                  Receive a comprehensive report with detailed analytics.
+                  Download your cleaned list in your preferred format, ready to
+                  use immediately.
+                </p>
+                <div className="tech-tags">
+                  <span className="tag">Detailed Report</span>
+                  <span className="tag">Export Ready</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Progress Indicator */}
+          <div className="progress-indicator-horizontal">
+            <div className="progress-dots">
+              <div className="dot active"></div>
+              <div className="dot"></div>
+              <div className="dot"></div>
+            </div>
+            <div className="progress-text">
+              <span className="progress-label">
+                Processing Time: Under 10 seconds
+              </span>
             </div>
           </div>
         </div>
