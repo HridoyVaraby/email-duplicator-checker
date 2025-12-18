@@ -69,6 +69,9 @@ const Header = () => {
     { id: 'process', label: 'How It Works', type: 'scroll' },
   ];
 
+  // Check if current page is dashboard or list processor
+  const isToolPage = location.pathname === '/dashboard' || location.pathname === '/list-processor';
+
   // Tool links configuration
   const toolLinks = [
     { path: '/dashboard', label: 'Duplicate Checker', icon: 'Filter' },
@@ -88,7 +91,7 @@ const Header = () => {
           {/* Desktop Navigation */}
           <nav className="desktop-nav">
             <ul className="nav-list">
-              {navLinks.map((link) => (
+              {!isToolPage && navLinks.map((link) => (
                 <li key={link.id}>
                   <button
                     className="nav-link"
@@ -98,7 +101,7 @@ const Header = () => {
                   </button>
                 </li>
               ))}
-              <li className="nav-separator"></li>
+              {!isToolPage && <li className="nav-separator"></li>}
               {toolLinks.map((link) => (
                 <li key={link.path}>
                   <button
@@ -150,7 +153,7 @@ const Header = () => {
         <div className={`mobile-menu ${isMobileMenuOpen ? 'open' : ''}`}>
           <nav className="mobile-nav">
             <ul className="mobile-nav-list">
-              {navLinks.map((link) => (
+              {!isToolPage && navLinks.map((link) => (
                 <li key={link.id}>
                   <button
                     className="mobile-nav-link"
@@ -160,7 +163,7 @@ const Header = () => {
                   </button>
                 </li>
               ))}
-              <li className="mobile-nav-separator"></li>
+              {!isToolPage && <li className="mobile-nav-separator"></li>}
               {toolLinks.map((link) => (
                 <li key={link.path}>
                   <button
