@@ -166,14 +166,14 @@ export const AppProvider = ({ children }) => {
     setError(null);
   }, []);
 
-  const handleListProcess = useCallback(async () => {
-    if (!listFileData || !listColumnMappings.emailColumn) {
+  const handleListProcess = useCallback(async (mappings) => {
+    if (!listFileData || !mappings.emailColumn) {
       setError("Please select an email column to process");
       return;
     }
 
     // Validate mappings
-    const validation = validateMappings(listColumnMappings, listFileData.columns);
+    const validation = validateMappings(mappings, listFileData.columns);
     if (!validation.isValid) {
       setError(validation.errors.join(", "));
       return;
@@ -185,7 +185,7 @@ export const AppProvider = ({ children }) => {
     try {
       const results = processListData(
         listFileData.data,
-        listColumnMappings,
+        mappings,
         (progress) => {
           setProgressState({
             isProcessing: true,
@@ -216,7 +216,7 @@ export const AppProvider = ({ children }) => {
         estimatedTimeRemaining: null,
       });
     }
-  }, [listFileData, listColumnMappings]);
+  }, [listFileData]);
 
   const handleListDownload = useCallback(() => {
     if (!listProcessResults || !listProcessResults.processedData) {

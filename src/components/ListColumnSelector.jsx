@@ -66,7 +66,7 @@ const ListColumnSelector = () => {
     
     setValidationErrors([]);
     handleListColumnSelection(localMappings);
-    handleListProcess();
+    handleListProcess(localMappings);
   };
 
   const getAvailableColumns = () => {

@@ -115,9 +115,7 @@ export function processRow(row, mappings) {
   const email = row[emailColumn] ? row[emailColumn].trim().toLowerCase() : '';
   
   // Create name
-  const firstName = firstNameColumn ? (row[firstNameColumn] || '').trim() : '';
-  const lastName = lastNameColumn ? (row[lastNameColumn] || '').trim() : '';
-  const name = [firstName, lastName].filter(Boolean).join(' ');
+  const name = createNameColumn(row, firstNameColumn, lastNameColumn);
   
   // Create attributes JSON
   const attributes = createAttributesJSON(row, attributeColumns);
@@ -127,6 +125,28 @@ export function processRow(row, mappings) {
     name,
     attributes
   };
+}
+
+/**
+ * Create name column from firstname/lastname
+ * @param {Object} row - Raw row data
+ * @param {string} firstNameCol - First name column name
+ * @param {string} lastNameCol - Last name column name
+ * @returns {string} - Combined name
+ */
+export function createNameColumn(row, firstNameCol, lastNameCol) {
+  const firstName = firstNameCol ? (row[firstNameCol] || '').trim() : '';
+  const lastName = lastNameCol ? (row[lastNameCol] || '').trim() : '';
+
+  if (firstName && !lastName) {
+    return firstName;
+  } else if (!firstName && lastName) {
+    return lastName;
+  } else if (firstName && lastName) {
+    return `${firstName} ${lastName}`;
+  } else {
+    return '';
+  }
 }
 
 /**
