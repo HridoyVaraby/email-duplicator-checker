@@ -13,6 +13,10 @@ const LandingPage = () => {
     navigate("/dashboard");
   };
 
+  const handleListProcessor = () => {
+    navigate("/list-processor");
+  };
+
   return (
     <div className="landing-page">
       <Header />
@@ -50,16 +54,11 @@ const LandingPage = () => {
             </p>
             <div className="hero-actions">
               <button onClick={handleGetStarted} className="cta-button primary">
-                <span className="cta-text">Get Started</span>
+                <span className="cta-text">Remove Duplicates</span>
               </button>
-              <a
-                href="https://github.com/HridoyVaraby/email-duplicator-checker"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="cta-button secondary"
-              >
-                <span className="cta-text">Learn More</span>
-              </a>
+              <button onClick={handleListProcessor} className="cta-button secondary">
+                <span className="cta-text">Process List</span>
+              </button>
             </div>
           </div>
         </div>
@@ -371,13 +370,18 @@ const LandingPage = () => {
       {/* CTA Section */}
       <section id="cta-section" className="cta-section">
         <div className="cta-container">
-          <h2 className="cta-title">Ready to Clean Your Data?</h2>
+          <h2 className="cta-title">Ready to Transform Your Data?</h2>
           <p className="cta-subtitle">
-            Join thousands of professionals who trust our tool for data cleaning
+            Join thousands of professionals who trust our tools for data processing
           </p>
-          <button onClick={handleGetStarted} className="cta-button secondary">
-            Start Cleaning Now
-          </button>
+          <div className="cta-actions">
+            <button onClick={handleGetStarted} className="cta-button secondary">
+              Remove Duplicates
+            </button>
+            <button onClick={handleListProcessor} className="cta-button secondary">
+              Process Email List
+            </button>
+          </div>
         </div>
       </section>
 

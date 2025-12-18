@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { AppProvider } from "./context/AppContext";
 import LandingPage from "./components/LandingPage";
 import Dashboard from "./components/Dashboard";
+import ListProcessor from "./components/ListProcessor";
 import "./App.css";
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
           <Routes>
             <Route path="/" element={<LandingPage />} />
             <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/list-processor" element={<ListProcessor />} />
           </Routes>
         </div>
       </Router>

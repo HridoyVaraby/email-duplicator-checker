@@ -3,8 +3,13 @@ import { parseFile } from "../utils/fileParser";
 import ProgressModal from "./ProgressModal";
 import { useAppContext } from "../context/AppContext";
 
-const FileUploader = () => {
-  const { setProgressState, handleFileProcessed, setError } = useAppContext();
+const FileUploader = ({ mode = "duplicate" }) => {
+  const {
+    setProgressState,
+    handleFileProcessed,
+    handleListFileProcessed,
+    setError
+  } = useAppContext();
   const [isDragging, setIsDragging] = useState(false);
   const [isProcessing, setIsProcessing] = useState(false);
   const [fileName, setFileName] = useState("");
@@ -91,7 +96,11 @@ const FileUploader = () => {
         estimatedTimeRemaining: null,
       });
 
-      handleFileProcessed(result);
+      if (mode === "list") {
+        handleListFileProcessed(result);
+      } else {
+        handleFileProcessed(result);
+      }
     } catch (error) {
       setError(error.message);
       // Clear progress state on error

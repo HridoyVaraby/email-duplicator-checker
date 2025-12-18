@@ -79,6 +79,12 @@ const Header = () => {
     { id: 'process', label: 'How It Works', type: 'scroll' },
   ];
 
+  // Tool links configuration
+  const toolLinks = [
+    { path: '/dashboard', label: 'Duplicate Checker', icon: 'Filter' },
+    { path: '/list-processor', label: 'List Processor', icon: 'Settings' },
+  ];
+
   return (
     <>
       <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
@@ -98,6 +104,18 @@ const Header = () => {
                     className="nav-link"
                     onClick={() => scrollToSection(link.id)}
                   >
+                    {link.label}
+                  </button>
+                </li>
+              ))}
+              <li className="nav-separator"></li>
+              {toolLinks.map((link) => (
+                <li key={link.path}>
+                  <button
+                    className={`nav-link tool-link ${location.pathname === link.path ? 'active' : ''}`}
+                    onClick={() => handleNavigate(link.path)}
+                  >
+                    <Icon name={link.icon} size={16} className="tool-icon" />
                     {link.label}
                   </button>
                 </li>
@@ -148,6 +166,18 @@ const Header = () => {
                     className="mobile-nav-link"
                     onClick={() => scrollToSection(link.id)}
                   >
+                    {link.label}
+                  </button>
+                </li>
+              ))}
+              <li className="mobile-nav-separator"></li>
+              {toolLinks.map((link) => (
+                <li key={link.path}>
+                  <button
+                    className={`mobile-nav-link tool-link ${location.pathname === link.path ? 'active' : ''}`}
+                    onClick={() => handleNavigate(link.path)}
+                  >
+                    <Icon name={link.icon} size={16} className="tool-icon" />
                     {link.label}
                   </button>
                 </li>
@@ -249,6 +279,29 @@ const Header = () => {
         .nav-link:hover {
           color: var(--primary-black);
           background-color: var(--gray-100);
+        }
+
+        .nav-separator {
+          width: 1px;
+          height: 24px;
+          background-color: var(--gray-300);
+          margin: 0 var(--spacing-sm);
+        }
+
+        .tool-link {
+          display: flex;
+          align-items: center;
+          gap: var(--spacing-xs);
+        }
+
+        .tool-link.active {
+          color: var(--primary-black);
+          background-color: var(--gray-100);
+          font-weight: var(--font-weight-bold);
+        }
+
+        .tool-icon {
+          flex-shrink: 0;
         }
 
         /* CTA Button */
@@ -392,6 +445,24 @@ const Header = () => {
         .mobile-nav-link:hover {
           color: var(--primary-black);
           background-color: var(--gray-100);
+        }
+
+        .mobile-nav-separator {
+          height: 1px;
+          background-color: var(--gray-300);
+          margin: var(--spacing-sm) 0;
+        }
+
+        .mobile-nav-link.tool-link {
+          display: flex;
+          align-items: center;
+          gap: var(--spacing-xs);
+        }
+
+        .mobile-nav-link.tool-link.active {
+          color: var(--primary-black);
+          background-color: var(--gray-100);
+          font-weight: var(--font-weight-bold);
         }
 
         .mobile-cta-container {
