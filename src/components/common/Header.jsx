@@ -4,20 +4,10 @@ import Icon from './Icon';
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
   const [githubStars, setGithubStars] = useState(null);
   const navigate = useNavigate();
   const location = useLocation();
 
-  // Handle scroll effect for backdrop blur
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   // Close mobile menu when clicking outside
   useEffect(() => {
@@ -87,7 +77,7 @@ const Header = () => {
 
   return (
     <>
-      <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
+      <header className="header">
         <div className="header-container">
           {/* Logo */}
           <div className="header-logo" onClick={() => handleNavigate('/')}>
@@ -204,13 +194,10 @@ const Header = () => {
           right: 0;
           z-index: 1000;
           transition: all var(--transition-normal);
-          background-color: transparent;
+          background-color: var(--primary-white);
+          border-bottom: 1px solid var(--gray-200);
         }
-
         .header.scrolled {
-          background-color: rgba(255, 255, 255, 0.95);
-          backdrop-filter: blur(12px);
-          -webkit-backdrop-filter: blur(12px);
           box-shadow: var(--shadow-md);
         }
 
@@ -266,8 +253,8 @@ const Header = () => {
 
         .nav-link {
           font-size: 1rem;
-          font-weight: var(--font-weight-bold);
-          color: var(--gray-700);
+          font-weight: var(--font-weight-medium);
+          color: var(--gray-600);
           padding: var(--spacing-sm) var(--spacing-md);
           border-radius: var(--radius-md);
           transition: all var(--transition-normal);
@@ -275,7 +262,6 @@ const Header = () => {
           border: none;
           cursor: pointer;
         }
-
         .nav-link:hover {
           color: var(--primary-black);
           background-color: var(--gray-100);
@@ -297,7 +283,7 @@ const Header = () => {
         .tool-link.active {
           color: var(--primary-black);
           background-color: var(--gray-100);
-          font-weight: var(--font-weight-bold);
+          font-weight: var(--font-weight-semibold);
         }
 
         .tool-icon {
@@ -316,10 +302,11 @@ const Header = () => {
           border-radius: var(--radius-md);
           transition: all var(--transition-normal);
           white-space: nowrap;
+          border: 1px solid var(--primary-black);
         }
-
         .cta-button-header:hover {
-          background-color: var(--gray-800);
+          background-color: var(--primary-white);
+          color: var(--primary-black);
           transform: translateY(-1px);
           box-shadow: var(--shadow-lg);
         }
@@ -329,23 +316,21 @@ const Header = () => {
           display: none;
           align-items: center;
           justify-content: center;
-          min-width: 40px;
+          gap: var(--spacing-xs);
           height: 40px;
-          background-color: var(--gray-100);
-          color: var(--gray-700);
+          padding: 0 var(--spacing-sm);
+          background-color: var(--primary-white);
+          color: var(--primary-black);
+          border: 1px solid var(--gray-300);
           border-radius: var(--radius-md);
           transition: all var(--transition-normal);
           text-decoration: none;
-          margin-left: var(--spacing-sm);
-          padding: 0 var(--spacing-sm);
-          gap: var(--spacing-xs);
         }
-
         .github-badge-header:hover {
-          background-color: var(--primary-black);
-          color: var(--primary-white);
+          background-color: var(--gray-100);
+          border-color: var(--gray-400);
           transform: translateY(-1px);
-          box-shadow: var(--shadow-md);
+          box-shadow: var(--shadow-sm);
         }
 
         .github-stars-count {
@@ -511,17 +496,6 @@ const Header = () => {
             display: none;
           }
 
-          .header.scrolled .logo-text {
-            color: var(--primary-black);
-          }
-
-          .header.scrolled .nav-link {
-            color: var(--gray-700);
-          }
-
-          .header.scrolled .nav-link:hover {
-            color: var(--primary-black);
-          }
         }
 
         @media (max-width: 767px) {
@@ -531,14 +505,6 @@ const Header = () => {
 
           .logo-text {
             font-size: 1rem;
-          }
-
-          .header:not(.scrolled) {
-            background-color: var(--primary-white);
-          }
-
-          .header:not(.scrolled).scrolled {
-            background-color: rgba(255, 255, 255, 0.95);
           }
         }
 
