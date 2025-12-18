@@ -201,19 +201,19 @@ const LandingPage = () => {
           <div className="features-stats">
             <div className="stat-item">
               <div className="stat-number">99.9%</div>
-              <div className="stat-label">Accuracy Rate</div>
+              <div className="stat-label" style={{ color: '#efefef' }}>Accuracy Rate</div>
             </div>
             <div className="stat-item">
               <div className="stat-number">1M+</div>
-              <div class="stat-label">Emails Processed</div>
+              <div class="stat-label" style={{ color: '#efefef' }}>Emails Processed</div>
             </div>
             <div class="stat-item">
               <div class="stat-number">500K+</div>
-              <div class="stat-label">Duplicates Removed</div>
+              <div class="stat-label" style={{ color: '#efefef' }}>Duplicates Removed</div>
             </div>
             <div class="stat-item">
               <div class="stat-number">24/7</div>
-              <div class="stat-label">Available</div>
+              <div class="stat-label" style={{ color: '#efefef' }}>Available</div>
             </div>
           </div>
         </div>
