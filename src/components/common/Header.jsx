@@ -65,12 +65,8 @@ const Header = () => {
 
   // Navigation links configuration
   const navLinks = [
-    { id: 'features', label: 'Features', type: 'scroll' },
-    { id: 'process', label: 'How It Works', type: 'scroll' },
+    // Removed Features and How It Works
   ];
-
-  // Check if current page is dashboard or list processor
-  const isToolPage = location.pathname === '/dashboard' || location.pathname === '/list-processor';
 
   // Tool links configuration
   const toolLinks = [
@@ -91,17 +87,6 @@ const Header = () => {
           {/* Desktop Navigation */}
           <nav className="desktop-nav">
             <ul className="nav-list">
-              {!isToolPage && navLinks.map((link) => (
-                <li key={link.id}>
-                  <button
-                    className="nav-link"
-                    onClick={() => scrollToSection(link.id)}
-                  >
-                    {link.label}
-                  </button>
-                </li>
-              ))}
-              {!isToolPage && <li className="nav-separator"></li>}
               {toolLinks.map((link) => (
                 <li key={link.path}>
                   <button
@@ -153,17 +138,6 @@ const Header = () => {
         <div className={`mobile-menu ${isMobileMenuOpen ? 'open' : ''}`}>
           <nav className="mobile-nav">
             <ul className="mobile-nav-list">
-              {!isToolPage && navLinks.map((link) => (
-                <li key={link.id}>
-                  <button
-                    className="mobile-nav-link"
-                    onClick={() => scrollToSection(link.id)}
-                  >
-                    {link.label}
-                  </button>
-                </li>
-              ))}
-              {!isToolPage && <li className="mobile-nav-separator"></li>}
               {toolLinks.map((link) => (
                 <li key={link.path}>
                   <button
